@@ -3,7 +3,7 @@
 namespace App\Tests;
 
 use PHPUnit\Framework\TestCase;
-use App\Core\HttpRequest;
+use App\Core\Http\Request;
 
 class HttpRequestTest extends TestCase
 {
@@ -14,7 +14,7 @@ class HttpRequestTest extends TestCase
     {
         $testValue = 'test';
         $_GET['user'] = $testValue;
-        $httpRequest = new HttpRequest();
+        $httpRequest = new Request();
         $this->assertSame($testValue, $httpRequest->getQuery()['user']);
     }
 
@@ -25,7 +25,7 @@ class HttpRequestTest extends TestCase
     {
         $testValue = 'test';
         $_GET['user'] = $testValue;
-        $httpRequest = new HttpRequest();
+        $httpRequest = new Request();
         $this->assertSame(['user' => $testValue], $httpRequest->getQuery());
     }
 }

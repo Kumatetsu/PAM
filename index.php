@@ -1,22 +1,7 @@
 <?php
-
-use App\Card;
-
 require 'vendor/autoload.php';
 
-$card = new Card();
-$host = 'db';
+require 'app/src/config/Routes.php';
 
-// Database use name
-$user = 'mariadb';
-
-//database user password
-$pass = 'mariadb';
-
-// check the MySQL connection status
-$conn = new mysqli($host, $user, $pass);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} else {
-    echo "Connected to MySQL server successfully!";
-}
+$response = $router->match($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
+$response->send();

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core;
+namespace App\Core\Http;
 
-class HttpRequest
+class Request
 {
     public function __construct()
     {
